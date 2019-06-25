@@ -1,0 +1,21 @@
+#!/usr/bin/python
+
+import datetime
+
+state = "/Users/DO185056/Documents/etc/state"
+
+f = open(state)
+c = f.read()
+f.close()
+
+d = datetime.datetime.now()
+
+# TODO - pad month and day with zeroes
+
+print "%d %02d %02d: %s [%s]\n" % (d.year, d.month, d.day, d.strftime("%A"), c.rstrip())
+
+c = str(int(c) + 1)
+f = open(state, "w")
+f.write(c)
+f.close()
+
